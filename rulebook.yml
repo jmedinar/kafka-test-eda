@@ -1,0 +1,15 @@
+---
+- name: Example Kafka Rulebook
+  hosts: localhost
+  sources:
+    - kafka:
+        name: Kafka Source
+        hosts: "localhost:9092"
+        topics: ["ansible-topic"]
+  rules:
+    - name: Trigger playbook on Kafka message
+      condition: event.payload.message == "deploy"
+      action:
+        run_playbook:
+          name: deploy-playbook.yml
+

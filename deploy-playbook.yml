@@ -1,0 +1,8 @@
+---
+- name: Deploy Application
+  hosts: localhost
+  tasks:
+    - name: Print deployment message
+      ansible.builtin.debug:
+        msg: "Deploying application based on Kafka message."
+
